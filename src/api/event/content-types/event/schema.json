@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "singularName": "event",
+    "pluralName": "events",
+    "displayName": "Events",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Event": {
+      "type": "string"
+    },
+    "EventA": {
+      "type": "string"
+    },
+    "Desc": {
+      "type": "text"
+    },
+    "DescA": {
+      "type": "text"
+    },
+    "StartDateTime": {
+      "type": "datetime",
+      "required": true
+    },
+    "StartDateTimeA": {
+      "type": "datetime"
+    },
+    "EndDateTime": {
+      "type": "datetime"
+    },
+    "EndDateTimeA": {
+      "type": "datetime"
+    },
+    "Venue": {
+      "type": "string",
+      "required": true
+    },
+    "VenueA": {
+      "type": "string",
+      "required": true
+    },
+    "Map": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

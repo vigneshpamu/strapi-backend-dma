@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "happy_meters",
+  "info": {
+    "singularName": "happy-meter",
+    "pluralName": "happy-meters",
+    "displayName": "HappyMeter"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Type": {
+      "type": "string",
+      "required": true
+    },
+    "Message": {
+      "type": "text"
+    }
+  }
+}

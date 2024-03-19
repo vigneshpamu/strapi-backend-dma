@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "news",
+  "info": {
+    "singularName": "new",
+    "pluralName": "news",
+    "displayName": "News",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "TitleA": {
+      "type": "string",
+      "required": true
+    },
+    "Content": {
+      "type": "text",
+      "required": true
+    },
+    "ContentA": {
+      "type": "text",
+      "required": true
+    },
+    "Date": {
+      "type": "date",
+      "required": true
+    },
+    "HeroImg": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Author": {
+      "type": "string",
+      "required": true,
+      "default": "Admin"
+    },
+    "AuthorA": {
+      "type": "string",
+      "required": true,
+      "default": "مسؤل"
+    },
+    "Desc": {
+      "type": "text",
+      "required": true
+    },
+    "DescA": {
+      "type": "text",
+      "required": true
+    }
+  }
+}
