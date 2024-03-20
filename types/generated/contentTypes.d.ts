@@ -925,6 +925,36 @@ export interface ApiHappyMeterHappyMeter extends Schema.CollectionType {
   };
 }
 
+export interface ApiMunicipalityMunicipality extends Schema.CollectionType {
+  collectionName: 'municipalities';
+  info: {
+    singularName: 'municipality';
+    pluralName: 'municipalities';
+    displayName: 'Municipality';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    AddContent: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::municipality.municipality',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::municipality.municipality',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiNewNew extends Schema.CollectionType {
   collectionName: 'news';
   info: {
@@ -951,6 +981,7 @@ export interface ApiNewNew extends Schema.CollectionType {
       Attribute.DefaultTo<'\u0645\u0633\u0624\u0644'>;
     Desc: Attribute.Text & Attribute.Required;
     DescA: Attribute.Text & Attribute.Required;
+    Desnew: Attribute.Blocks;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1017,6 +1048,7 @@ declare module '@strapi/types' {
       'api::event.event': ApiEventEvent;
       'api::feedback.feedback': ApiFeedbackFeedback;
       'api::happy-meter.happy-meter': ApiHappyMeterHappyMeter;
+      'api::municipality.municipality': ApiMunicipalityMunicipality;
       'api::new.new': ApiNewNew;
       'api::query.query': ApiQueryQuery;
     }

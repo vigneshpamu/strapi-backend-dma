@@ -60,6 +60,9 @@
     "DescA": {
       "type": "text",
       "required": true
+    },
+    "Desnew": {
+      "type": "blocks"
     }
   }
 }
