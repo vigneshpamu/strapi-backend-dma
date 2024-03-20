@@ -931,12 +931,14 @@ export interface ApiMunicipalityMunicipality extends Schema.CollectionType {
     singularName: 'municipality';
     pluralName: 'municipalities';
     displayName: 'Municipality';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     AddContent: Attribute.RichText;
+    Check: Attribute.Blocks;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
