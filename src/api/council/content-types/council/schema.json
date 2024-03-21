@@ -1,0 +1,61 @@
+{
+  "kind": "collectionType",
+  "collectionName": "councils",
+  "info": {
+    "singularName": "council",
+    "pluralName": "councils",
+    "displayName": "Council",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "CouncilName": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "CouncilNameArabic": {
+      "type": "string",
+      "required": true
+    },
+    "Members": {
+      "type": "enumeration",
+      "enum": [
+        "Members of the Sharjah Council",
+        "Members of the Hamriyah District Council",
+        "Members of the Khor Fakkan District Council",
+        "Members of the Madam District Council",
+        "Members of the Kalba District Council",
+        "Members of the Mleiha District Council",
+        "Members of the Al-Bataeh District Council",
+        "Members of the Dibba Al-Hisn City Council",
+        "Members of the Al Dhaid City Council"
+      ]
+    },
+    "council_members": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::council-member.council-member",
+      "mappedBy": "council"
+    },
+    "CardImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

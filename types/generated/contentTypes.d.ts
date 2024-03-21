@@ -818,6 +818,100 @@ export interface ApiComplaintComplaint extends Schema.CollectionType {
   };
 }
 
+export interface ApiCouncilCouncil extends Schema.CollectionType {
+  collectionName: 'councils';
+  info: {
+    singularName: 'council';
+    pluralName: 'councils';
+    displayName: 'Council';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    CouncilName: Attribute.String & Attribute.Required & Attribute.Unique;
+    CouncilNameArabic: Attribute.String & Attribute.Required;
+    Members: Attribute.Enumeration<
+      [
+        'Members of the Sharjah Council',
+        'Members of the Hamriyah District Council',
+        'Members of the Khor Fakkan District Council',
+        'Members of the Madam District Council',
+        'Members of the Kalba District Council',
+        'Members of the Mleiha District Council',
+        'Members of the Al-Bataeh District Council',
+        'Members of the Dibba Al-Hisn City Council',
+        'Members of the Al Dhaid City Council'
+      ]
+    >;
+    council_members: Attribute.Relation<
+      'api::council.council',
+      'oneToMany',
+      'api::council-member.council-member'
+    >;
+    CardImage: Attribute.Media & Attribute.Required;
+    Logo: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::council.council',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::council.council',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCouncilMemberCouncilMember extends Schema.CollectionType {
+  collectionName: 'council_members';
+  info: {
+    singularName: 'council-member';
+    pluralName: 'council-members';
+    displayName: 'CouncilMember';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Photo: Attribute.Media & Attribute.Required;
+    council: Attribute.Relation<
+      'api::council-member.council-member',
+      'manyToOne',
+      'api::council.council'
+    >;
+    Name: Attribute.String & Attribute.Required;
+    NameArabic: Attribute.String & Attribute.Required;
+    Role: Attribute.String & Attribute.Required & Attribute.DefaultTo<'Member'>;
+    RoleArabic: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'\u0639\u0636\u0648'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::council-member.council-member',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::council-member.council-member',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiEventEvent extends Schema.CollectionType {
   collectionName: 'events';
   info: {
@@ -1047,6 +1141,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::complaint.complaint': ApiComplaintComplaint;
+      'api::council.council': ApiCouncilCouncil;
+      'api::council-member.council-member': ApiCouncilMemberCouncilMember;
       'api::event.event': ApiEventEvent;
       'api::feedback.feedback': ApiFeedbackFeedback;
       'api::happy-meter.happy-meter': ApiHappyMeterHappyMeter;

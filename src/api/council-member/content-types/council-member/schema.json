@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "council_members",
+  "info": {
+    "singularName": "council-member",
+    "pluralName": "council-members",
+    "displayName": "CouncilMember",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Photo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "council": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::council.council",
+      "inversedBy": "council_members"
+    },
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "NameArabic": {
+      "type": "string",
+      "required": true
+    },
+    "Role": {
+      "type": "string",
+      "required": true,
+      "default": "Member"
+    },
+    "RoleArabic": {
+      "type": "string",
+      "required": true,
+      "default": "عضو"
+    }
+  }
+}
