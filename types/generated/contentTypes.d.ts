@@ -1033,6 +1033,18 @@ export interface ApiMunicipalityMunicipality extends Schema.CollectionType {
   attributes: {
     AddContent: Attribute.RichText;
     Check: Attribute.Blocks;
+    Title: Attribute.String & Attribute.Required;
+    TitleArabic: Attribute.String;
+    Sname: Attribute.String & Attribute.Required;
+    Website: Attribute.String;
+    Number: Attribute.String;
+    Map: Attribute.Text & Attribute.Required;
+    Facebook: Attribute.String;
+    Instagram: Attribute.String;
+    Twitter: Attribute.String;
+    YouTube: Attribute.String;
+    CardImage: Attribute.Media & Attribute.Required;
+    AddContentArabic: Attribute.RichText;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -17,6 +17,50 @@
     },
     "Check": {
       "type": "blocks"
+    },
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "TitleArabic": {
+      "type": "string"
+    },
+    "Sname": {
+      "type": "string",
+      "required": true
+    },
+    "Website": {
+      "type": "string"
+    },
+    "Number": {
+      "type": "string"
+    },
+    "Map": {
+      "type": "text",
+      "required": true
+    },
+    "Facebook": {
+      "type": "string"
+    },
+    "Instagram": {
+      "type": "string"
+    },
+    "Twitter": {
+      "type": "string"
+    },
+    "YouTube": {
+      "type": "string"
+    },
+    "CardImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "AddContentArabic": {
+      "type": "richtext"
     }
   }
 }
