@@ -15,9 +15,6 @@
     "AddContent": {
       "type": "richtext"
     },
-    "Check": {
-      "type": "blocks"
-    },
     "Title": {
       "type": "string",
       "required": true
@@ -61,6 +58,21 @@
     },
     "AddContentArabic": {
       "type": "richtext"
+    },
+    "AboutMunicipality": {
+      "type": "richtext",
+      "required": true
+    },
+    "AboutMunicipalityArabic": {
+      "type": "richtext",
+      "required": true
+    },
+    "check": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbarBalloon"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
     }
   }
 }

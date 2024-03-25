@@ -783,6 +783,36 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAboutAbout extends Schema.CollectionType {
+  collectionName: 'abouts';
+  info: {
+    singularName: 'about';
+    pluralName: 'abouts';
+    displayName: 'About';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    HeroImgs: Attribute.Media & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::about.about',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::about.about',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiComplaintComplaint extends Schema.CollectionType {
   collectionName: 'complaints';
   info: {
@@ -929,12 +959,12 @@ export interface ApiEventEvent extends Schema.CollectionType {
     Desc: Attribute.Text;
     DescA: Attribute.Text;
     StartDateTime: Attribute.DateTime & Attribute.Required;
-    StartDateTimeA: Attribute.DateTime;
     EndDateTime: Attribute.DateTime;
-    EndDateTimeA: Attribute.DateTime;
     Venue: Attribute.String & Attribute.Required;
     VenueA: Attribute.String & Attribute.Required;
-    Map: Attribute.String & Attribute.Required;
+    VenueMap: Attribute.Text & Attribute.Required;
+    Category: Attribute.String & Attribute.Required;
+    CategoryArabic: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1019,6 +1049,63 @@ export interface ApiHappyMeterHappyMeter extends Schema.CollectionType {
   };
 }
 
+export interface ApiHolidayHoliday extends Schema.CollectionType {
+  collectionName: 'holidays';
+  info: {
+    singularName: 'holiday';
+    pluralName: 'holidays';
+    displayName: 'Holiday';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Date: Attribute.Date & Attribute.Required;
+    EventName: Attribute.String & Attribute.Required;
+    EventNameArabic: Attribute.String & Attribute.Required;
+    AboutEvent: Attribute.Text & Attribute.Required;
+    AboutEventArabic: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::holiday.holiday',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::holiday.holiday',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHomeHome extends Schema.CollectionType {
+  collectionName: 'homes';
+  info: {
+    singularName: 'home';
+    pluralName: 'homes';
+    displayName: 'Home';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    HeroImgs: Attribute.Media & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface ApiMunicipalityMunicipality extends Schema.CollectionType {
   collectionName: 'municipalities';
   info: {
@@ -1032,7 +1119,6 @@ export interface ApiMunicipalityMunicipality extends Schema.CollectionType {
   };
   attributes: {
     AddContent: Attribute.RichText;
-    Check: Attribute.Blocks;
     Title: Attribute.String & Attribute.Required;
     TitleArabic: Attribute.String;
     Sname: Attribute.String & Attribute.Required;
@@ -1045,6 +1131,15 @@ export interface ApiMunicipalityMunicipality extends Schema.CollectionType {
     YouTube: Attribute.String;
     CardImage: Attribute.Media & Attribute.Required;
     AddContentArabic: Attribute.RichText;
+    AboutMunicipality: Attribute.RichText & Attribute.Required;
+    AboutMunicipalityArabic: Attribute.RichText & Attribute.Required;
+    check: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbarBalloon';
+        }
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1152,12 +1247,15 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::about.about': ApiAboutAbout;
       'api::complaint.complaint': ApiComplaintComplaint;
       'api::council.council': ApiCouncilCouncil;
       'api::council-member.council-member': ApiCouncilMemberCouncilMember;
       'api::event.event': ApiEventEvent;
       'api::feedback.feedback': ApiFeedbackFeedback;
       'api::happy-meter.happy-meter': ApiHappyMeterHappyMeter;
+      'api::holiday.holiday': ApiHolidayHoliday;
+      'api::home.home': ApiHomeHome;
       'api::municipality.municipality': ApiMunicipalityMunicipality;
       'api::new.new': ApiNewNew;
       'api::query.query': ApiQueryQuery;

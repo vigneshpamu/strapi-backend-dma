@@ -28,13 +28,7 @@
       "type": "datetime",
       "required": true
     },
-    "StartDateTimeA": {
-      "type": "datetime"
-    },
     "EndDateTime": {
-      "type": "datetime"
-    },
-    "EndDateTimeA": {
       "type": "datetime"
     },
     "Venue": {
@@ -45,7 +39,15 @@
       "type": "string",
       "required": true
     },
-    "Map": {
+    "VenueMap": {
+      "type": "text",
+      "required": true
+    },
+    "Category": {
+      "type": "string",
+      "required": true
+    },
+    "CategoryArabic": {
       "type": "string",
       "required": true
     }
