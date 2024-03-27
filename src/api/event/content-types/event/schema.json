@@ -50,6 +50,14 @@
     "CategoryArabic": {
       "type": "string",
       "required": true
+    },
+    "HeroImg": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
     }
   }
 }

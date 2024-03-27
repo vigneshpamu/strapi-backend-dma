@@ -969,6 +969,7 @@ export interface ApiEventEvent extends Schema.CollectionType {
     VenueMap: Attribute.Text & Attribute.Required;
     Category: Attribute.String & Attribute.Required;
     CategoryArabic: Attribute.String & Attribute.Required;
+    HeroImg: Attribute.Media & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1070,6 +1071,7 @@ export interface ApiHolidayHoliday extends Schema.CollectionType {
     EventNameArabic: Attribute.String & Attribute.Required;
     AboutEvent: Attribute.Text & Attribute.Required;
     AboutEventArabic: Attribute.Text;
+    HeroImg: Attribute.Media & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
