@@ -28,7 +28,6 @@ const config = {
     // 'zh',
   ],
 };
-
 const bootstrap = (app) => {
   console.log(app);
 };

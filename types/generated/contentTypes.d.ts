@@ -789,12 +789,16 @@ export interface ApiAboutAbout extends Schema.CollectionType {
     singularName: 'about';
     pluralName: 'abouts';
     displayName: 'About';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     HeroImgs: Attribute.Media & Attribute.Required;
+    KingImg: Attribute.Media & Attribute.Required;
+    ChairmanImg: Attribute.Media & Attribute.Required;
+    MemberImgs: Attribute.Media & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
