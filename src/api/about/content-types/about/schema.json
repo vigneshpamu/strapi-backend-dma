@@ -37,11 +37,27 @@
       ]
     },
     "MemberImgs": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "ChairmanName": {
+      "type": "string",
+      "required": true
+    },
+    "ChairmanNameArabic": {
+      "type": "string",
+      "required": true
+    },
+    "ChairmanMessage": {
+      "type": "richtext",
+      "required": true
+    },
+    "ChairmanMessageArabic": {
+      "type": "richtext",
       "required": true
     }
   }

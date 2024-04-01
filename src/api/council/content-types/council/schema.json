@@ -12,28 +12,14 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "CouncilName": {
+    "Title": {
       "type": "string",
       "required": true,
       "unique": true
     },
-    "CouncilNameArabic": {
+    "TitleArabic": {
       "type": "string",
       "required": true
-    },
-    "Members": {
-      "type": "enumeration",
-      "enum": [
-        "Members of the Sharjah Council",
-        "Members of the Hamriyah District Council",
-        "Members of the Khor Fakkan District Council",
-        "Members of the Madam District Council",
-        "Members of the Kalba District Council",
-        "Members of the Mleiha District Council",
-        "Members of the Al-Bataeh District Council",
-        "Members of the Dibba Al-Hisn City Council",
-        "Members of the Al Dhaid City Council"
-      ]
     },
     "council_members": {
       "type": "relation",
@@ -50,6 +36,22 @@
       ]
     },
     "Logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "CouncilTitle": {
+      "type": "string",
+      "required": true
+    },
+    "CouncilTitleArabic": {
+      "type": "string",
+      "required": true
+    },
+    "CoverImg": {
       "type": "media",
       "multiple": false,
       "required": false,

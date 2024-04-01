@@ -799,6 +799,10 @@ export interface ApiAboutAbout extends Schema.CollectionType {
     KingImg: Attribute.Media & Attribute.Required;
     ChairmanImg: Attribute.Media & Attribute.Required;
     MemberImgs: Attribute.Media & Attribute.Required;
+    ChairmanName: Attribute.String & Attribute.Required;
+    ChairmanNameArabic: Attribute.String & Attribute.Required;
+    ChairmanMessage: Attribute.RichText & Attribute.Required;
+    ChairmanMessageArabic: Attribute.RichText & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -864,21 +868,8 @@ export interface ApiCouncilCouncil extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    CouncilName: Attribute.String & Attribute.Required & Attribute.Unique;
-    CouncilNameArabic: Attribute.String & Attribute.Required;
-    Members: Attribute.Enumeration<
-      [
-        'Members of the Sharjah Council',
-        'Members of the Hamriyah District Council',
-        'Members of the Khor Fakkan District Council',
-        'Members of the Madam District Council',
-        'Members of the Kalba District Council',
-        'Members of the Mleiha District Council',
-        'Members of the Al-Bataeh District Council',
-        'Members of the Dibba Al-Hisn City Council',
-        'Members of the Al Dhaid City Council'
-      ]
-    >;
+    Title: Attribute.String & Attribute.Required & Attribute.Unique;
+    TitleArabic: Attribute.String & Attribute.Required;
     council_members: Attribute.Relation<
       'api::council.council',
       'oneToMany',
@@ -886,6 +877,9 @@ export interface ApiCouncilCouncil extends Schema.CollectionType {
     >;
     CardImage: Attribute.Media & Attribute.Required;
     Logo: Attribute.Media;
+    CouncilTitle: Attribute.String & Attribute.Required;
+    CouncilTitleArabic: Attribute.String & Attribute.Required;
+    CoverImg: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -924,10 +918,17 @@ export interface ApiCouncilMemberCouncilMember extends Schema.CollectionType {
     >;
     Name: Attribute.String & Attribute.Required;
     NameArabic: Attribute.String & Attribute.Required;
-    Role: Attribute.String & Attribute.Required & Attribute.DefaultTo<'Member'>;
-    RoleArabic: Attribute.String &
+    RoleName: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'Member'>;
+    RoleNameArabic: Attribute.String &
       Attribute.Required &
       Attribute.DefaultTo<'\u0639\u0636\u0648'>;
+    isRole: Attribute.Enumeration<
+      ['Chairman', 'Vice Chairman/President', 'Member']
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'Member'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1112,6 +1113,42 @@ export interface ApiHomeHome extends Schema.CollectionType {
   };
 }
 
+export interface ApiMunicipalAndCouncilMunicipalAndCouncil
+  extends Schema.CollectionType {
+  collectionName: 'municipal_and_councils';
+  info: {
+    singularName: 'municipal-and-council';
+    pluralName: 'municipal-and-councils';
+    displayName: 'MunicipalAndCouncil';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    MunicipalityCoverImg: Attribute.Media & Attribute.Required;
+    CouncilCoverImg: Attribute.Media & Attribute.Required;
+    MunicipalityDescText: Attribute.String & Attribute.Required;
+    MunicipalityDescTextArabic: Attribute.String & Attribute.Required;
+    CouncilDescText: Attribute.String & Attribute.Required;
+    CouncilDescTextArabic: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::municipal-and-council.municipal-and-council',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::municipal-and-council.municipal-and-council',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiMunicipalityMunicipality extends Schema.CollectionType {
   collectionName: 'municipalities';
   info: {
@@ -1146,6 +1183,8 @@ export interface ApiMunicipalityMunicipality extends Schema.CollectionType {
           preset: 'toolbarBalloon';
         }
       >;
+    Logo: Attribute.Media & Attribute.Required;
+    CoverImg: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1262,6 +1301,7 @@ declare module '@strapi/types' {
       'api::happy-meter.happy-meter': ApiHappyMeterHappyMeter;
       'api::holiday.holiday': ApiHolidayHoliday;
       'api::home.home': ApiHomeHome;
+      'api::municipal-and-council.municipal-and-council': ApiMunicipalAndCouncilMunicipalAndCouncil;
       'api::municipality.municipality': ApiMunicipalityMunicipality;
       'api::new.new': ApiNewNew;
       'api::query.query': ApiQueryQuery;

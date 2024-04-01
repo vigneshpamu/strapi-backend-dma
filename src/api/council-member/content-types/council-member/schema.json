@@ -34,15 +34,25 @@
       "type": "string",
       "required": true
     },
-    "Role": {
+    "RoleName": {
       "type": "string",
       "required": true,
       "default": "Member"
     },
-    "RoleArabic": {
+    "RoleNameArabic": {
       "type": "string",
       "required": true,
       "default": "عضو"
+    },
+    "isRole": {
+      "type": "enumeration",
+      "enum": [
+        "Chairman",
+        "Vice Chairman/President",
+        "Member"
+      ],
+      "default": "Member",
+      "required": true
     }
   }
 }
