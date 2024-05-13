@@ -59,6 +59,30 @@
     "ChairmanMessageArabic": {
       "type": "richtext",
       "required": true
+    },
+    "DirectorImg": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "DirectorMessage": {
+      "type": "richtext",
+      "required": true
+    },
+    "DirectorMessageArabic": {
+      "type": "richtext",
+      "required": true
+    },
+    "DirectorName": {
+      "type": "string",
+      "required": true
+    },
+    "DirectorNameArabic": {
+      "type": "string",
+      "required": true
     }
   }
 }

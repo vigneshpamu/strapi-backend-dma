@@ -803,6 +803,11 @@ export interface ApiAboutAbout extends Schema.CollectionType {
     ChairmanNameArabic: Attribute.String & Attribute.Required;
     ChairmanMessage: Attribute.RichText & Attribute.Required;
     ChairmanMessageArabic: Attribute.RichText & Attribute.Required;
+    DirectorImg: Attribute.Media;
+    DirectorMessage: Attribute.RichText & Attribute.Required;
+    DirectorMessageArabic: Attribute.RichText & Attribute.Required;
+    DirectorName: Attribute.String & Attribute.Required;
+    DirectorNameArabic: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1274,6 +1279,41 @@ export interface ApiQueryQuery extends Schema.CollectionType {
   };
 }
 
+export interface ApiTweetTweet extends Schema.CollectionType {
+  collectionName: 'tweets';
+  info: {
+    singularName: 'tweet';
+    pluralName: 'tweets';
+    displayName: 'Tweet';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Image: Attribute.String & Attribute.Required;
+    UserName: Attribute.String & Attribute.Required;
+    AccountName: Attribute.String;
+    TweetText: Attribute.Text;
+    DateTime: Attribute.Date;
+    TweetLink: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::tweet.tweet',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::tweet.tweet',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1305,6 +1345,7 @@ declare module '@strapi/types' {
       'api::municipality.municipality': ApiMunicipalityMunicipality;
       'api::new.new': ApiNewNew;
       'api::query.query': ApiQueryQuery;
+      'api::tweet.tweet': ApiTweetTweet;
     }
   }
 }

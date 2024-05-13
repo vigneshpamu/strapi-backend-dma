@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tweets",
+  "info": {
+    "singularName": "tweet",
+    "pluralName": "tweets",
+    "displayName": "Tweet",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Image": {
+      "type": "string",
+      "required": true
+    },
+    "UserName": {
+      "type": "string",
+      "required": true
+    },
+    "AccountName": {
+      "type": "string"
+    },
+    "TweetText": {
+      "type": "text"
+    },
+    "DateTime": {
+      "type": "date"
+    },
+    "TweetLink": {
+      "type": "string"
+    }
+  }
+}
