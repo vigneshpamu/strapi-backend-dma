@@ -14,11 +14,11 @@
   "attributes": {
     "Image": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "UserName": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "AccountName": {
       "type": "string"

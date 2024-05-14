@@ -885,6 +885,7 @@ export interface ApiCouncilCouncil extends Schema.CollectionType {
     CouncilTitle: Attribute.String & Attribute.Required;
     CouncilTitleArabic: Attribute.String & Attribute.Required;
     CoverImg: Attribute.Media;
+    Rank: Attribute.Integer & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1190,6 +1191,7 @@ export interface ApiMunicipalityMunicipality extends Schema.CollectionType {
       >;
     Logo: Attribute.Media & Attribute.Required;
     CoverImg: Attribute.Media;
+    Rank: Attribute.Integer & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1291,8 +1293,8 @@ export interface ApiTweetTweet extends Schema.CollectionType {
     draftAndPublish: false;
   };
   attributes: {
-    Image: Attribute.String & Attribute.Required;
-    UserName: Attribute.String & Attribute.Required;
+    Image: Attribute.String;
+    UserName: Attribute.String;
     AccountName: Attribute.String;
     TweetText: Attribute.Text;
     DateTime: Attribute.Date;
