@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "terms_and_conditions",
+  "info": {
+    "singularName": "terms-and-condition",
+    "pluralName": "terms-and-conditions",
+    "displayName": "Terms and Condition"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "TitleArabic": {
+      "type": "string",
+      "required": true
+    },
+    "Heading": {
+      "type": "text",
+      "required": true
+    },
+    "HeadingArabic": {
+      "type": "text",
+      "required": true
+    },
+    "Main": {
+      "type": "text",
+      "required": true
+    },
+    "MainArabic": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

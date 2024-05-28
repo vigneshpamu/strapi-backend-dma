@@ -1247,6 +1247,41 @@ export interface ApiNewNew extends Schema.CollectionType {
   };
 }
 
+export interface ApiPrivacyPolicyPrivacyPolicy extends Schema.CollectionType {
+  collectionName: 'privacy_policies';
+  info: {
+    singularName: 'privacy-policy';
+    pluralName: 'privacy-policies';
+    displayName: 'Privacy Policy';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String & Attribute.Required;
+    TitleArabic: Attribute.String & Attribute.Required;
+    Heading: Attribute.Text & Attribute.Required;
+    HeadingArabic: Attribute.Text & Attribute.Required;
+    Main: Attribute.Text & Attribute.Required;
+    MainArabic: Attribute.Text & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::privacy-policy.privacy-policy',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::privacy-policy.privacy-policy',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiQueryQuery extends Schema.CollectionType {
   collectionName: 'queries';
   info: {
@@ -1274,6 +1309,72 @@ export interface ApiQueryQuery extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::query.query',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSeoSeo extends Schema.CollectionType {
+  collectionName: 'seos';
+  info: {
+    singularName: 'seo';
+    pluralName: 'seos';
+    displayName: 'SEO';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Page: Attribute.String & Attribute.Required;
+    Route: Attribute.String & Attribute.Required;
+    MetaTitle: Attribute.String & Attribute.Required;
+    MetaDescription: Attribute.Text & Attribute.Required;
+    Canonical: Attribute.String;
+    Keywords: Attribute.Text;
+    OpenGraphTitle: Attribute.String;
+    OpenGraphDescription: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::seo.seo', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::seo.seo', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTermsAndConditionTermsAndCondition
+  extends Schema.CollectionType {
+  collectionName: 'terms_and_conditions';
+  info: {
+    singularName: 'terms-and-condition';
+    pluralName: 'terms-and-conditions';
+    displayName: 'Terms and Condition';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String & Attribute.Required;
+    TitleArabic: Attribute.String & Attribute.Required;
+    Heading: Attribute.Text & Attribute.Required;
+    HeadingArabic: Attribute.Text & Attribute.Required;
+    Main: Attribute.Text & Attribute.Required;
+    MainArabic: Attribute.Text & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::terms-and-condition.terms-and-condition',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::terms-and-condition.terms-and-condition',
       'oneToOne',
       'admin::user'
     > &
@@ -1346,7 +1447,10 @@ declare module '@strapi/types' {
       'api::municipal-and-council.municipal-and-council': ApiMunicipalAndCouncilMunicipalAndCouncil;
       'api::municipality.municipality': ApiMunicipalityMunicipality;
       'api::new.new': ApiNewNew;
+      'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'api::query.query': ApiQueryQuery;
+      'api::seo.seo': ApiSeoSeo;
+      'api::terms-and-condition.terms-and-condition': ApiTermsAndConditionTermsAndCondition;
       'api::tweet.tweet': ApiTweetTweet;
     }
   }

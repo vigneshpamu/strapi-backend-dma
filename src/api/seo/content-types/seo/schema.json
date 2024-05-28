@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "seos",
+  "info": {
+    "singularName": "seo",
+    "pluralName": "seos",
+    "displayName": "SEO",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Page": {
+      "type": "string",
+      "required": true
+    },
+    "Route": {
+      "type": "string",
+      "required": true
+    },
+    "MetaTitle": {
+      "type": "string",
+      "required": true
+    },
+    "MetaDescription": {
+      "type": "text",
+      "required": true
+    },
+    "Canonical": {
+      "type": "string"
+    },
+    "Keywords": {
+      "type": "text"
+    },
+    "OpenGraphTitle": {
+      "type": "string",
+      "required": false
+    },
+    "OpenGraphDescription": {
+      "type": "text"
+    }
+  }
+}
